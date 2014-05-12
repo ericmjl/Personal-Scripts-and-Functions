@@ -24,9 +24,13 @@ dna = {
     '*' : 'TRR'
     }
 
-# reverse_translate takes in only 1 parameter: "seq", which is an amino acid sequence.
-# Ensure that there is only a sequence of letters present.
-def rt(seq):
+def reverse_translate(seq):
+    """
+    This function takes in an amino acid sequence (str object) and returns the
+    reverse translation of that sequence. 
+
+    The nucleotide sequence will contain degenerate positions. 
+    """
     nucleotide = ""
     for amino_acid in seq:
         nucleotide += str(dna[amino_acid])
