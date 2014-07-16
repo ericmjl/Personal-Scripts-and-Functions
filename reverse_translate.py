@@ -21,7 +21,7 @@ dna = {
     'V' : 'GTN',
     'B' : 'RAY',
     'Z' : 'SAR',
-    '*' : 'TRR'
+    '*' : 'TAA'
     }
 
 def reverse_translate(seq):
