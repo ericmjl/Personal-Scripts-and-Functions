@@ -5,7 +5,7 @@ Date: 9 June 2014
 Purpose of this set of custom functions:
 
 To find the best match for a small query string in a larger reference 
-string and locate it position
+string and locate its position
 
 """
 
