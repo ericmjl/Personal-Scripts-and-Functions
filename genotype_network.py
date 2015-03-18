@@ -27,13 +27,14 @@ if __name__ == '__main__':
 
 		if distance(s1seq, s2seq) == 1:
 			if s1seq not in G.nodes():
-				G.add_node(s1seq, accessions=[s1.id])
+				G.add_node(s1seq, accessions=set([s1.id]))
 			if s1seq in G.nodes():
-				G.node[s1seq]['accessions'].append(s1.id)
+				G.node[s1seq]['accessions'].add(s1.id)
+
 			if s2seq not in G.nodes():
-				G.add_node(s2seq, accessions=[s2.id])
+				G.add_node(s2seq, accessions=set([s2.id]))
 			if s2seq in G.nodes():
-				G.node[s2seq]['accessions'].append(s2.id)
+				G.node[s2seq]['accessions'].add(s2.id)
 
 			G.add_edge(s1seq, s2seq)
 
