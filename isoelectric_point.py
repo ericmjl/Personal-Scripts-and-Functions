@@ -1,3 +1,8 @@
+"""
+Author: Eric J. Ma
+Date: 2015-03-17
+"""
+
 isoelectric_points = {
 	'A':6.11,
 	'R':10.76,
