@@ -4,7 +4,11 @@ import sys
 from Bio import AlignIO
 from itertools import combinations
 from Levenshtein import distance
+
 """
+Author: Eric J. Ma
+Date: 2015-03-17
+
 This simple program generates a genotype network from a multiple sequence
 alignment of isolates.
 """
@@ -33,4 +37,4 @@ if __name__ == '__main__':
 
 			G.add_edge(s1seq, s2seq)
 
-	nx.write_gpickle(g_handle)
+	nx.write_gpickle(G, g_handle)
