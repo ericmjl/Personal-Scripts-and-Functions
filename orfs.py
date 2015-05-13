@@ -7,13 +7,15 @@ The purpose of this python module is to provide a function to find the
 longest ORF from a coding sequence.
 """
 
+from Bio.SeqRecord import SeqRecord
+
 def longest_orfs(list_of_seqrecords):
     aa_sequences = []
     for i, record in enumerate(list_of_seqrecords):
-        longest_protein = SeqRecord(id=record.id, seq='')
+        longest_protein = SeqRecord(id=record.id, seq='', description=record.description)
         for frame in range(3):
             length = 3 * ((len(record) - frame) // 3)
-            translation = record.seq[frame:frame + length].translate()
+            translation = record.seq[frame:frame + length].ungap('-').translate()
             for pro in translation.split("*"):
                 if len(pro) > len(longest_protein.seq):
                     longest_protein.seq = pro
