@@ -25,7 +25,7 @@ The parameters that are needed are:
 - minb: minimum bin size you're willing to consider
 - maxb: maximum bin size you're willing to consider
 
-The dependencies apart from the standard Python library that are needed are:
+The dependencies apart from the standard Python 2.7 library that are needed are:
 - numpy
 - scipy
 - pandas 
