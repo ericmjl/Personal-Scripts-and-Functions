@@ -2,19 +2,12 @@
 Author: Eric J. Ma
 
 Purpose of Code: 
-This code is a code snippet that shows how to search for GPS longitude and latitude coordinates based on a given set of search terms.
+This code is a code snippet that shows how to search for GPS longitude 
+and latitude coordinates based on a given set of search terms.
 
 """
 
 from geopy.geocoders import GeoNames, GoogleV3
-
-
-geocoder = GoogleV3(timeout=5)
-
-# 
-countries_to_search = set()
-
-geodata = get_geo_coordinates(countires_to_searhc)
 
 def get_geo_coordinates(search_terms):
 	"""
@@ -27,6 +20,7 @@ def get_geo_coordinates(search_terms):
 		- longitude
 		- latitude
 	"""
+	geocoder = GoogleV3(timeout=5)
 	geodata = []
 	for search_term in search_terms:
 		new_search_term = search_term.replace('|', ' ')
