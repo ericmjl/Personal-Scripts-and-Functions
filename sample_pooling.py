@@ -42,6 +42,35 @@ import sys
 from scipy.stats import bernoulli
 
 
+def count_number_of_positives(rvs, bin_size):
+	num_positives = 0
+	for i in range(0, len(rvs), bin_size):
+		if np.sum(rvs[i:i+bin_size]) > 0:
+			num_positives += 1
+
+	return num_positives
+
+
+def test_count_number_of_positives():
+	"""
+	Test for the function: 
+	
+		count_number_of_positives(rvs, bin_size)
+	"""
+	rvs = [0, 1, 1, 0, 1, 0, 0, 0, 1]
+	bin_size = 2
+
+	assert(count_number_of_positives(rvs, bin_size) == 4)
+
+
+def test_count_number_of_positives_2():
+	"""
+	Another test case for count_number_of_positives()
+	"""
+	rvs = [1, 1, 1, 1, 1, 1, 0, 0 ,0]
+	bin_size = 3
+	assert(count_number_of_positives(rvs, bin_size) == 2)
+
 def main(n=300, p=0.1, minb=1, maxb=30):
 	# Input Parameters
 	bin_sizes = np.arange(minb,maxb+1,1)
@@ -57,10 +86,11 @@ def main(n=300, p=0.1, minb=1, maxb=30):
 			num_extractions = len(rvs) / bin_size
 
 			# Count the number of times a positive shows up in a pool
-			num_round_1_positives = 0
-			for i in range(0, len(rvs),bin_size):
-				if np.sum(rvs[i:i+bin_size]) > 0:
-					num_round_1_positives += 1
+			num_round_1_positives = count_number_of_positives(rvs, bin_size)
+			# num_round_1_positives = 0
+			# for i in range(0, len(rvs),bin_size):
+				# if np.sum(rvs[i:i+bin_size]) > 0:
+					# num_round_1_positives += 1
 
 			# Compute the number of samples needed to re-screen.
 			num_round_2_extractions = num_round_1_positives * bin_size
